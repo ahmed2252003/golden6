@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,5 +53,9 @@ Route::get('/',function (){
 //     });
 // });
 
-// // Modelكيانات
+// // Controller Route
+Route::get('greeting', [ArticleController::class, 'sayHello']);
+Route::get('all-articles', [ArticleController::class, 'index']);
 
+// // Resource Route
+Route::resource('article', ArticleController::class);

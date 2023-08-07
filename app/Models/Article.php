@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+    // المسموح بالملئ
+    // protected $fillable = ['title', 'content'];
+    // الممنوع من الملئ
+    protected $guarded = [];
 }
