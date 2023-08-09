@@ -24,8 +24,9 @@ class ArticleController extends Controller
 
 
         // ORM [Object Rerational Mapping] ---> Model {Possibilities}
-        $article = Article::all(); // select * from article
-        dd($article);
+        $articles = Article::all(); // select * from article
+        // dd($articles);
+        return view('articles.index')->with('articles',$articles);
     }
 
     /**
@@ -49,7 +50,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        // dd($article->content);
+        return view('articles.show', ['article'=> $article]);
     }
 
     /**

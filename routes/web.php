@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,17 +22,18 @@ Route::get('/', function () {
 // // View Route عرض الصفحه
 // Route::view('hello', 'welcome');
 
-// Route::view('hello2', 'pages.hello');
+// Route::view('hi', 'pages.hello');
 
 // // Show User Data
-Route::get('/',function (){
-    $arr = [
-        'name' => 'Ahmed',
-        'age' => 20
-    ];
+// Route::get('/',function (){
+//     $arr = [
+//         'name' => 'Ahmed',
+//         'age' => 20
+//     ];
 
-    return view('welcome', ['data' => $arr]);
-});
+//     return view('welcome', ['data' => $arr]);
+//     // return view('welcome', compact('data'));
+// });
 
 // // Named Route
 // Route::get('/', function (){
@@ -54,8 +56,14 @@ Route::get('/',function (){
 // });
 
 // // Controller Route
-Route::get('greeting', [ArticleController::class, 'sayHello']);
-Route::get('all-articles', [ArticleController::class, 'index']);
+// Route::get('greeting', [ArticleController::class, 'sayHello']);
+// Route::get('all-articles', [ArticleController::class, 'index']);
 
 // // Resource Route
-Route::resource('article', ArticleController::class);
+Route::resource('articles', ArticleController::class);
+// Route::resource('user', UserController::class)->names(
+//     [
+//         'index' => 'user.all'
+//     ]
+// );
+

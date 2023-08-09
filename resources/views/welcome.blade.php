@@ -1,6 +1,3 @@
-<h2>{{ $data['name'] }}</h2>
-<h2>{{ $data['age'] }}</h2>
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
