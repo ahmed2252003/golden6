@@ -60,10 +60,26 @@ Route::get('/', function () {
 // Route::get('all-articles', [ArticleController::class, 'index']);
 
 // // Resource Route
-Route::resource('articles', ArticleController::class);
+// Route::resource('articles', ArticleController::class);
 // Route::resource('user', UserController::class)->names(
 //     [
 //         'index' => 'user.all'
 //     ]
 // );
 
+// // Dashboard
+Route::get('/ahmed', function () {
+    return view('dashboard.index');
+});
+
+Route::get('/ahmed2', function () {
+    return view('dashboard.master');
+});
+
+// // dashboard
+Route::prefix('admin')->group(function(){
+
+    // dashboard - articles
+    Route::resource('articles', ArticleController::class);
+
+});
