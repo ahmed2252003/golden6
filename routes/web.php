@@ -68,18 +68,23 @@ Route::get('/', function () {
 // );
 
 // // Dashboard
-Route::get('/ahmed', function () {
-    return view('dashboard.index');
-});
+// Route::get('/ahmed', function () {
+//     return view('dashboard.index');
+// });
 
-Route::get('/ahmed2', function () {
-    return view('dashboard.master');
-});
+// Route::get('/ahmed2', function () {
+//     return view('dashboard.master');
+// });
 
 // // dashboard
 Route::prefix('admin')->group(function(){
 
     // dashboard - articles
     Route::resource('articles', ArticleController::class);
+
+    // dashboard
+    Route::get('/', function () {
+        return view('dashboard.index');
+    })->name('dashboard.index');
 
 });

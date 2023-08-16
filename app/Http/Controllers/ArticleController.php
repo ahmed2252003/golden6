@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -26,15 +27,15 @@ class ArticleController extends Controller
         // ORM [Object Rerational Mapping] ---> Model {Possibilities}
         $articles = Article::all(); // select * from article
         // dd($articles);
-        return view('articles.index')->with('articles',$articles);
+        return view('dashboard.articles.index')->with('articles', $articles);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() // Show form
     {
-        //
+        return view('dashboard.articles.create');
     }
 
     /**
@@ -42,7 +43,23 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        //
+        $validated = $request->validate(
+            [
+                'title'     => 'required|string|min:5|max:15',
+                'content'   => 'required|string|min:15|max:150',
+            ]
+        );
+
+        Article::create(
+            [
+                'title' => request('title'),
+                'content' => request('content'),
+                'status' => 1,
+                'user_id' => 1
+            ]
+        );
+
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -51,7 +68,8 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         // dd($article->content);
-        return view('articles.show', ['article'=> $article]);
+        return view('dashboard.articles.show', ['article' => $article]);
+        // return view('dashboard.articles.show')-with('article', $article);
     }
 
     /**

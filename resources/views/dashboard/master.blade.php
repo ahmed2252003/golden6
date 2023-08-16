@@ -17,7 +17,7 @@
             <img class="animation__shake" src="{{ asset('/dashboard/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
         </div>
 
-        @include('dashboard.layout.mainNav')
+        {{-- @include('dashboard.layout.mainNav') --}}
         @include('dashboard.layout.sideNav')
 
         <!-- Content Wrapper. Contains page content -->
