@@ -41,7 +41,7 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreArticleRequest $request)
+    public function store(Request $request)
     {
         $validated = $request->validate(
             [
@@ -77,7 +77,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('dashboard.articles.edit', ['article' => $article]);
     }
 
     /**

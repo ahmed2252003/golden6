@@ -31,19 +31,15 @@ Create Article
           <input value="{{ old('title') }}" type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
         </div>
 
-
-
         <!-- textarea -->
         <div class="form-group">
           <label>Content</label>
-          <textarea name="content" class="form-control" rows="5" placeholder="Enter ...">
-          {{old('content')}}
-          </textarea>
+          <textarea name="content" class="form-control" rows="5" placeholder="Enter ...">{{old('content')}}</textarea>
         </div>
         <!-- /.card-body -->
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>
   </div>
