@@ -18,18 +18,18 @@ Create Article
       <div class="card-body">
         <div class="form-group">
           <label for="title">Title</label>
-          <input value="{{ $article->title }}" type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+          <input value="{{ old('title', $article->title) }}" type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
         </div>
 
         <!-- textarea -->
         <div class="form-group">
           <label>Content</label>
-          <textarea name="content" class="form-control" rows="5" placeholder="Enter ...">{{$article->content}}</textarea>
+          <textarea name="content" class="form-control" rows="5" placeholder="Enter ...">{{old('content', $article->content)}}</textarea>
         </div>
         <!-- /.card-body -->
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">SAve</button>
         </div>
     </form>
   </div>
